@@ -1,0 +1,86 @@
+//Maya ASCII 2020 scene
+//Name: BuzzLighyear.ma
+//Last modified: Tue, Jul 25, 2023 09:55:18 AM
+//Codeset: 1252
+requires maya "2020";
+requires "mtoa" "4.1.1";
+currentUnit -l centimeter -a degree -t film;
+fileInfo "application" "maya";
+fileInfo "product" "Maya 2020";
+fileInfo "version" "2020";
+fileInfo "cutIdentifier" "202011110415-b1e20b88e2";
+fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 19045)\n";
+fileInfo "UUID" "157A1B35-4C88-7495-8318-439A307F9F16";
+createNode transform -n "main_rig";
+	rename -uid "91B408BC-400C-FDDA-2370-0D8EC4E49516";
+createNode joint -n "joint1" -p "main_rig";
+	rename -uid "ECD59DDD-4E9E-44E8-6629-4182281531D9";
+	setAttr ".t" -type "double3" 0.17710023754506743 0 -9.975724213975143 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 0 269.21091311244174 0 ;
+	setAttr ".radi" 0.75049991274745498;
+createNode joint -n "joint2" -p "joint1";
+	rename -uid "A134CC7A-44BB-EAE9-DBEC-DB88E6DC1FFB";
+	setAttr ".t" -type "double3" 5.8429983131174623 0 -8.7430063189231078e-16 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 0 0.58908688754088945 0 ;
+	setAttr ".radi" 0.71048067600176734;
+createNode joint -n "joint3" -p "joint2";
+	rename -uid "F753B848-4F12-C72B-57D1-D19761FCC19B";
+	setAttr ".t" -type "double3" 5.0692930693675011 0 -2.0861784522097082e-14 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 0 3.8416907936577345 0 ;
+	setAttr ".radi" 0.63369584117185418;
+createNode joint -n "joint4" -p "joint3";
+	rename -uid "CAF7CEE8-4ECF-D1A2-A351-2CB2C0A3FA95";
+	setAttr ".t" -type "double3" 3.5847862626558471 0 -5.3568260938163803e-15 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 0 -7.8954101986357772 0 ;
+	setAttr ".radi" 0.66798155007013704;
+createNode joint -n "joint5" -p "joint4";
+	rename -uid "FB43883E-4B31-9CBD-2EEA-058A7EC80946";
+	setAttr ".t" -type "double3" 4.2476433013559838 0 1.7763568394002505e-15 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 0 94.253719404995394 0 ;
+	setAttr ".radi" 0.66798155007013704;
+select -ne :time1;
+	setAttr ".o" 1;
+	setAttr ".unw" 1;
+select -ne :hardwareRenderingGlobals;
+	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
+	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
+		 1 1 1 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 ;
+	setAttr ".fprt" yes;
+select -ne :renderPartition;
+	setAttr -s 3 ".st";
+select -ne :renderGlobalsList1;
+select -ne :defaultShaderList1;
+	setAttr -s 6 ".s";
+select -ne :postProcessList1;
+	setAttr -s 2 ".p";
+select -ne :defaultRenderingList1;
+select -ne :initialShadingGroup;
+	setAttr -s 3 ".dsm";
+	setAttr ".ro" yes;
+select -ne :initialParticleSE;
+	setAttr ".ro" yes;
+select -ne :defaultRenderGlobals;
+	addAttr -ci true -h true -sn "dss" -ln "defaultSurfaceShader" -dt "string";
+	setAttr ".ren" -type "string" "arnold";
+	setAttr ".dss" -type "string" "lambert1";
+select -ne :defaultResolution;
+	setAttr ".pa" 1;
+select -ne :hardwareRenderGlobals;
+	setAttr ".ctrs" 256;
+	setAttr ".btrs" 512;
+connectAttr "joint1.s" "joint2.is";
+connectAttr "joint2.s" "joint3.is";
+connectAttr "joint3.s" "joint4.is";
+connectAttr "joint4.s" "joint5.is";
+// End of BuzzLighyear.ma

@@ -1,0 +1,7 @@
+{
+	"Export ABC -  Model": ["main"],
+	"Export shade -  Lookdev": ["main","dirty","broken"],
+	"Export sene -  Rig": ["main","curl"],
+	"Export Anim ABC - Animation": ["main"]
+	
+}
